@@ -4,64 +4,43 @@
     <meta charset="utf-8">
     <title>ExileKit</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="Common.css">
+</head>
+
+<body>
+
     <style>
-        body {
-            font-family: Roboto, "Helvetica Neue", sans-serif;
-            background-color: rgb(49,51,56);
-            color: rgb(240,242,244);
-        }
-
-        a {
-            color: inherit;
-        }
-
-        h1 {
+        h1
+        {
             font-size: 150px;
-            padding: 0px;
-            margin: 0px;
         }
 
-        #title-container {
+        #title-container
+        {
             display: flex;
         }
 
-        #title-heist-img {
+        #title-heist-img
+        {
             width: 156px;
             height: 156px;
         }
 
-        #title-container-left {
+        #title-container-left
+        {
             display: flex;
             flex: 1;
             flex-direction: row-reverse;
             align-items: center;
         }
 
-        #title-subtext {
+        #title-subtext
+        {
             text-align: center;
             font-size: 24px;
             margin-top: -20px;
         }
-
-        input {
-            color: inherit;
-            background-color: inherit;
-        }
-
-
-        li {
-            font-size: 24px;
-        }
-
-        .path {
-            font-family: monospace;
-            font-size: 16px;
-        }
     </style>
-</head>
-
-<body>
-
     <div id="title-container">
         <div id="title-container-left"><img id="title-heist-img" src="assets/BasicDisguiseKit.png" /></div>
         <div style="display:flex; align-items:center;"><h1>ExileKit</h1></div>
@@ -71,129 +50,74 @@
         Future home of stuff about Path of Exile 2. In the meanwhile, stuff rediscovered about Path of Exile 1.
     </div>
 
+
     <style>
-        .list-topmost-folder {
-            font-size: initial;
-            list-style-type: "📁";
-        }
-
-        .list-tools {
-            font-size: initial;
-            list-style-type: "🧰";
-        }
-
-        .list-doc {
-            font-size: initial;
+        .nav-tutorial
+        {
             list-style-type: "📝";
         }
-
-        .list-disk {
-            font-size: initial;
-            list-style-type: "💾";
-        }
-
-        .list-datadump {
-            font-size: initial;
+        .nav-dump
+        {
             list-style-type: "💢";
         }
-        .list-description {
-            margin:5px;
+        .nav-description
+        {
             list-style-type:none;
             font-size:initial;
         }
-        .list-empty-folder {
-            list-style-type: none;
-            font-size: initial;
+        .nav-tutorial, .nav-dump
+        {
+            font-size: 24px;
         }
-        .emoji-anchor {
-            display: inline-block;
-            text-decoration: none;
+        .nav-tutorial, .nav-dump, .nav-description
+        {
+            margin: 20px;
         }
     </style>
-
-    <ul style="margin:20px;">
-        <li class="list-disk">
-            <span class="path">
-                /home/exilekit
-            </span>
+    <ul>
+        <li class="nav-tutorial">
+            <a href="StatDescriptionFormat.html">StatDescriptionFormat</a>
             <ul>
-                <li class="list-topmost-folder">
-                    <span class="path">
-                        /poe2
-                    </span>
-                    <ul>
-                        <li class="list-empty-folder"><i>empty folder</i></li>
-                    </ul>
+                <li class="nav-description">
+                    Tutorial on the format of <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code>.
                 </li>
-                <li class="list-topmost-folder">
-                    <span class="path">
-                        /poe1
-                    </span>
-                    <ul>
-                        <li class="list-tools">
-                            <span class="path">/tools</span>
-                            <ul>
-                                <li class="list-empty-folder"><i>empty folder</i></li>
-                            </ul>
-                        </li>
-                        <li class="list-doc">
-                            <span class="path">/docs (*.html)</span>
-                            <ul>
-                                <li>
-                                    <a href="StatDescriptionFormat.html"><span class="emoji-anchor">📝 </span>StatDescriptionFormat</a>
-                                    <ul>
-                                        <li class="list-description">
-                                            Describes the format of the
-                                            <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> file.
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="TexConvDdsToPng.html"><span class="emoji-anchor">📝 </span>TexConvDdsToPng</a>
-                                    <ul>
-                                        <li class="list-description">
-                                            Describes how to convert the DDS files to PNG.
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-datadump">
-                            <span class="path">/dumps (*.html|*.xml)</span>
-                            <ul>
-                                <li>
-                                    <a href="DelimiterSearch.html"><span class="emoji-anchor">💢 </span>DelimiterSearch</a>
-                                    <ul>
-                                        <li class="list-description">
-                                            There is an 8 byte delimiter
-                                            <code>0xBB_BB_BB_BB_BB_BB_BB_BB</code> that marks the end of the record data and the beginning of the
-                                            auxilliary data of each
-                                            <code>.dat64</code>. There's little reason for it to exists, and it could coincidentally appear in other places of the file.
-                                            This page lists the result of searching for it.
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="MutatorList.html"><span class="emoji-anchor">💢 </span>MutatorList</a>
-                                    <ul>
-                                        <li class="list-description">
-                                            A count of every unique set of mutators for the file
-                                            <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> (english-only).
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="StatDescriptionList.html"><span class="emoji-anchor">💢 </span>StatDescriptionList</a>
-                                    <ul>
-                                        <li class="list-description">
-                                            Just
-                                            <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> formatted as an HTML table (english-only).
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+            </ul>
+        </li>
+        <li class="nav-tutorial">
+            <a href="TexConvDdsToPng.html">TexConvDdsToPng</a>
+            <ul>
+                <li class="nav-description">
+                    Tutorial on how to convert <code>.dds</code> files to <code>.png</code>.
+                </li>
+            </ul>
+        </li>
+        <li class="nav-dump">
+            <a href="DelimiterSearch.html">DelimiterSearch</a>
+            <ul>
+                <li class="nav-description">
+                    There is an 8 byte delimiter
+                    <code>0xBB_BB_BB_BB_BB_BB_BB_BB</code> that marks the end of the record data and the beginning of the
+                    auxilliary data of each
+                    <code>.dat64</code>. There's little reason for it to exists, and it could coincidentally appear in other places of the file.
+                    This page lists the result of searching for it.
+                </li>
+            </ul>
+        </li>
+        <li class="nav-dump">
+            <a href="MutatorList.html">MutatorList</a>
+            <ul>
+                <li class="nav-description">
+                    A count of every unique set of mutators for the file
+                    <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> (english-only).
+                </li>
+            </ul>
+        </li>
+        <li class="nav-dump">
+            <a href="StatDescriptionList.html">StatDescriptionList</a>
+            <ul>
+                <li class="nav-description">
+                    Just
+                    <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> formatted as an HTML table (english-only).
                 </li>
             </ul>
         </li>
