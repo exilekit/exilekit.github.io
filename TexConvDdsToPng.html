@@ -1,98 +1,64 @@
 ﻿<html>
 <head>
     <title>TexConvDdsToPng - ExileKit</title>
+    <link rel="stylesheet" href="Common.css">
     <style>
-        body {
-            font-family: Roboto, "Helvetica Neue", sans-serif;
-            background-color: rgb(49,51,56);
-            color: rgb(240,242,244);
-        }
-        a {
-            color: inherit;
-        }
-        h1 {
-            text-align: center;
-            font-size: 65px;
-            padding: 0px;
-            margin: 0px;
-        }
-        .code_block {
-            background-color: rgba(255,255,255,0.05);
-            display: block;
-            border: 1px dashed;
-            padding: 5px;
-        }
-        .indented_once {
+        .indented_once
+        {
             margin-left: 50px;
         }
-        .logo {
-            font-family: monospace;
-            font-size: 40px;
-            vertical-align: middle;
-            margin: 0px;
-            padding: 0px;
-            font-weight: bold;
+        .code-comment
+        {
+            color:rgb(0,130,126);
         }
-        .logo-link {
-            display: inline-block;
-            vertical-align: middle;
-            text-decoration: none;
-            width: 50px;
-            height: 50px;
-        }
-        .path {
-            font-family: monospace;
-            font-size: 40px;
-            margin: 0px;
-            padding: 0px;
-        }
-        #title-subtext {
-            text-align: center;
-            font-size: 24px;
-            margin-top: -20px;
+        .code-parameter
+        {
+            padding-left: 4px;
+            padding-right: 4px;
+            background-color: rgb(240,240,240);
         }
     </style>
 </head>
 <body>
     <div>
-        <a href="/"><img class="logo-link" src="assets/BasicDisguiseKit.png" /></a>
-        <a href="/" class="logo">ExileKit</a>
-        <span style="vertical-align:middle;" class="path">&nbsp;/ docs / TexConvDdsToPng.html</span>
+        <a href="/"><img class="nav-bar-logo-link" src="assets/BasicDisguiseKit.png" /></a>
+        <a href="/" class="nav-bar-logo">ExileKit</a>
+        <span style="vertical-align:middle;" class="nav-bar-path">&nbsp;/ TexConvDdsToPng.html</span>
     </div>
 
-    <h1>TexConv DDS to PNG</h1>
-    <p style="text-align:center;">Description of how to work the DDS files.</p>
+    <div class="pagebody">
+        <h1>TexConv DDS to PNG</h1>
+        <p style="text-align:center;">Tutorial on how to convert DDS files to PNG.</p>
 
-    <h2>What are the "DDS header" files?</h2>
-    <p>
-        You've probably noticed that every <code>.dds</code> has an associated <code>.dds.header</code>.
-        Contrary to what I would expect, the <code>.dds.header</code> is actually just a low-resolution
-        version of the <code>.dds</code>; it is not a "header" per se, it's a tiny version of the original image. 
-        The PoE game client loads all the low-resolution textures (the <code>.dds.header</code> files)
-        on startup so that it can serve those while the larger textures load.
-    </p>
+        <h2>What are the "DDS header" files?</h2>
+        <p>
+            You've probably noticed that every <code>.dds</code> has an associated <code>.dds.header</code>.
+            Contrary to what I would expect, the <code>.dds.header</code> is actually just a low-resolution
+            version of the <code>.dds</code>; it is not a "header" per se, it's a tiny version of the original image.
+            The PoE game client loads all the low-resolution textures (the <code>.dds.header</code> files)
+            on startup so that it can serve those while the larger textures load.
+        </p>
 
-    <h2>How do I convert all the DDS files to PNG?</h2>
-    <p>
-        Microsoft distributes a tool called <a href="https://github.com/microsoft/DirectXTex/wiki/Texconv">TexConv</a> that can 
-        recursively convert all the DDS files to PNG for you, and even store them in a seperate folder whist perserving folder structure.
-        However, in its default configuration the PNG files that it generates (whilst valid) are not properly understood by the vast
-        majority of programs (resulting in the colors being too bright); only a handful of programs, mostly image editing software, 
-        can properly read the PNG files.
-    </p>
-    <p>
-        Via trial&amp;error (I brute forced just about every permutation of options that looked relevent) a configuration was 
-        discovered that generated PNGs that could be understood by every program tested. The configuration is
-        <code style="font-weight:bold;">-f R8G8B8A8_UNORM_SRGB -srgbi</code>.
-    </p>
+        <h2>How do I convert all the DDS files to PNG?</h2>
+        <p>
+            Microsoft distributes a tool called <a href="https://github.com/microsoft/DirectXTex/wiki/Texconv">TexConv</a> that can
+            recursively convert all the DDS files to PNG for you, and even store them in a seperate folder whist perserving folder structure <code>-r:keep</code>.
+            However, in its default configuration, the PNG files that it generates (whilst valid) are not properly understood by the vast
+            majority of programs (resulting in the colors being too bright). Only a handful of programs, mostly image editing software,
+            can properly read the PNG files.
+        </p>
+        <p>
+            To convert the DDS files to PNG in a format understood by most programs include the parameters <code>-f R8G8B8A8_UNORM_SRGB -srgbi</code>.
+        </p>
 
-    <div class="indented_once">
-        <h3>Example: Convert all the .dds for "Art" and "minimap" folders</h3>
-        <code class="code_block indent_code_block">
-            # adjust paths as needed, and make a coffee b/c this'll take 30 minutes<br/>
-            texconv.exe -f R8G8B8A8_UNORM_SRGB -r:keep -ft png -srgbi -o D:\Output\Art D:\Bundles\Art\*.dds<br/>
-            texconv.exe -f R8G8B8A8_UNORM_SRGB -r:keep -ft png -srgbi -o D:\Output\minimap D:\Bundles\minimap\*.dds
-        </code>
+        <div class="indented_once">
+            <h3>Example: Convert all the .dds for "Art" and "minimap" folders</h3>
+            <code class="code_block indent_code_block">
+                <span class="code-comment"># adjust paths as needed, and make a coffee b/c this'll take 30 minutes</span><br />
+                texconv.exe <span class="code-parameter">-f R8G8B8A8_UNORM_SRGB</span> <span class="code-parameter">-r:keep</span> <span class="code-parameter">-ft png</span> <span class="code-parameter">-srgbi</span> <span class="code-parameter">-o D:\Output\Art</span> <span class="code-parameter">D:\Bundles\Art\*.dds</span><br />
+                texconv.exe <span class="code-parameter">-f R8G8B8A8_UNORM_SRGB</span> <span class="code-parameter">-r:keep</span> <span class="code-parameter">-ft png</span> <span class="code-parameter">-srgbi</span> <span class="code-parameter">-o D:\Output\minimap</span> <span class="code-parameter">D:\Bundles\minimap\*.dds</span>
+            </code>
+        </div>
     </div>
 </body>
 </html>

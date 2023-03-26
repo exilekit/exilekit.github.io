@@ -1,0 +1,81 @@
+body
+{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: rgb(49,51,56);
+    color: rgb(240,242,244);
+    padding: 0px;
+    margin: 0px;
+}
+
+code
+{
+    background-color: rgb(40,40,40);
+    border: 1px dashed rgb(164,164,164);
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.code_block
+{
+    background-color: white;
+    border: 1px dashed rgb(0,0,0);
+    color: black;
+    display: block;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    line-height: 175%;
+}
+
+a
+{
+    color: inherit;
+}
+
+input
+{
+    color: inherit;
+    background-color: inherit;
+}
+
+h1
+{
+    text-align: center;
+    font-size: 65px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav-bar-logo
+{
+    font-family: monospace;
+    font-size: 40px;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+
+.nav-bar-logo-link
+{
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+}
+
+.nav-bar-path
+{
+    font-family: monospace;
+    font-size: 40px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.pagebody
+{
+    padding: 25px;
+}
+
+

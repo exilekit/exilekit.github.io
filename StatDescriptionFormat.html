@@ -1,151 +1,97 @@
 ﻿<html>
 <head>
     <title>StatDescriptionFormat - ExileKit</title>
+    <link rel="stylesheet" href="Common.css">
     <style>
-        body {
-            font-family: Roboto, "Helvetica Neue", sans-serif;
-            background-color: rgb(49,51,56);
-            color: rgb(240,242,244);
-        }
-
-        a {
-            color: inherit;
-        }
-
-        input {
-            color: inherit;
-            background-color: inherit;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 65px;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .code_block {
-            background-color: rgba(255,255,255,0.05);
-            display: block;
-            border: 1px dashed;
-            padding: 5px;
-        }
-
-        .indented_once {
+        .indented_once
+        {
             margin-left: 50px;
         }
 
-        .light_blue {
+        .light_blue
+        {
             background-color: rgba(128,128,255,0.30);
         }
 
-        .light_green {
+        .light_green
+        {
             background-color: rgba(128,255,128,0.30);
         }
 
-        .light_red {
+        .light_red
+        {
             background-color: rgba(255,128,128,0.30);
         }
     </style>
 </head>
 <body>
-
-    <style>
-        .logo {
-            font-family: monospace;
-            font-size: 40px;
-            vertical-align: middle;
-            margin: 0px;
-            padding: 0px;
-            font-weight: bold;
-        }
-
-        .logo-link {
-            display: inline-block;
-            vertical-align: middle;
-            text-decoration: none;
-            width: 50px;
-            height: 50px;
-        }
-
-        .path {
-            font-family: monospace;
-            font-size: 40px;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        #title-subtext {
-            text-align: center;
-            font-size: 24px;
-            margin-top: -20px;
-        }
-    </style>
-
     <div>
-        <a href="/"><img class="logo-link" src="assets/BasicDisguiseKit.png" /></a>
-        <a href="/" class="logo">ExileKit</a>
-        <span style="vertical-align:middle;" class="path">&nbsp;/ docs / StatDescriptionFormat.html</span>
+        <a href="/"><img class="nav-bar-logo-link" src="assets/BasicDisguiseKit.png" /></a>
+        <a href="/" class="nav-bar-logo">ExileKit</a>
+        <span style="vertical-align:middle;" class="nav-bar-path">&nbsp;/ StatDescriptionFormat.html</span>
     </div>
 
-    <h1>Stat Description Format</h1>
-    <p style="text-align:center;">Description of the format of the file <code>stat_descriptions.txt</code></p>
+    <div class="pagebody">
+
+        <h1>Stat Description Format</h1>
+        <p style="text-align:center;">Description of the format of the file <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code></p>
 
 
-    <h2><code>description</code> Block Format</h2>
-    <code class="code_block">
-        description<br />
-        &nbsp;&nbsp;&nbsp;NSTATS <span class="light_blue">STAT1_KEY</span> <span class="light_green">STAT2_KEY</span> .. STAT<b>N</b>_KEY<br />
-        &nbsp;&nbsp;&nbsp;NROWS<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">STAT1_VALUE</span> <span class="light_green">STAT2_VALUE</span> .. STAT<b>N</b>_VALUE <span class="light_red">STR</span> [MUTATORS..]<br />
-    </code>
-
-    <div class="indented_once">
-        <h3>Example: Single Stat</h3>
-        <code class="code_block indent_code_block">
+        <h2>Generalized Format</h2>
+        <code class="code_block">
             description<br />
-            &nbsp;&nbsp;&nbsp;1 <span class="light_blue">avoid_interruption_while_casting_%</span><br />
-            &nbsp;&nbsp;&nbsp;2<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1|99</span> <span class="light_red">"{0}% chance to Avoid interruption from Stuns while Casting"</span><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">100|#</span> <span class="light_red">"Avoid interruption from Stuns while Casting"</span><br />
+            &nbsp;&nbsp;&nbsp;NSTATS <span class="light_blue">STAT1_KEY</span> <span class="light_green">STAT2_KEY</span> .. STAT<b>N</b>_KEY<br />
+            &nbsp;&nbsp;&nbsp;NROWS<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">STAT1_VALUE</span> <span class="light_green">STAT2_VALUE</span> .. STAT<b>N</b>_VALUE <span class="light_red">STR</span> [MUTATORS..]<br />
         </code>
-    </div>
 
-    <div class="indented_once">
-        <h3>Example: Multi Stat (timeless jewel)</h3>
-        <code class="code_block indent_code_block">
-            description<br />
-            &nbsp;&nbsp;&nbsp;4 <span class="light_blue">local_unique_jewel_alternate_tree_version</span> <span class="light_green">local_unique_jewel_alternate_tree_seed</span> local_unique_jewel_alternate_tree_keystone local_unique_jewel_alternate_tree_internal_revision<br />
-            &nbsp;&nbsp;&nbsp;20<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 1 # <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Xibaqua\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 2 0 <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Zerphi\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 2 1|# <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Ahuana\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 3 # <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Doryani\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 1 # <span class="light_red">"Commanded leadership over {1} warriors under Kaom\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 2 # <span class="light_red">"Commanded leadership over {1} warriors under Rakiata\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 3 0 <span class="light_red">"Commanded leadership over {1} warriors under Kiloava\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 3 1|# <span class="light_red">"Commanded leadership over {1} warriors under Akoya\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 1 0 <span class="light_red">"Denoted service of {1} dekhara in the akhara of Deshret\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 1 1|# <span class="light_red">"Denoted service of {1} dekhara in the akhara of Balbala\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 2 # <span class="light_red">"Denoted service of {1} dekhara in the akhara of Asenath\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 3 # <span class="light_red">"Denoted service of {1} dekhara in the akhara of Nasima\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 1 0 <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Venarius\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 1 1|# <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Maxarius\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 2 # <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Dominus\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 3 # <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Avarius\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 1 # <span class="light_red">"Commissioned {1} coins to commemorate Cadiro\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 2 # <span class="light_red">"Commissioned {1} coins to commemorate Victario\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 3 0 <span class="light_red">"Commissioned {1} coins to commemorate Chitus\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 3 1|# <span class="light_red">"Commissioned {1} coins to commemorate Caspiro\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
-        </code>
-    </div>
+        <div class="indented_once">
+            <h3>Example: Single Stat</h3>
+            <code class="code_block indent_code_block">
+                description<br />
+                &nbsp;&nbsp;&nbsp;1 <span class="light_blue">avoid_interruption_while_casting_%</span><br />
+                &nbsp;&nbsp;&nbsp;2<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1|99</span> <span class="light_red">"{0}% chance to Avoid interruption from Stuns while Casting"</span><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">100|#</span> <span class="light_red">"Avoid interruption from Stuns while Casting"</span><br />
+            </code>
+        </div>
 
-    <h2><code>STAT_VALUE</code> Format</h2>
-    <p>The <code>|</code> symbol does not mean "OR"; the <code>|</code> symbol is used to define a range.</p>
-    <ul>
-        <li><code>1|99</code> means <i>"match any numbers in the range 1-99"</i></li>
-        <li><code>100|#</code> means <i>"match any numbers in the range 100 to positive infinity"</i></li>
-        <li><code>#|-1</code> means <i>"match any numbers in the range negative infinity to negative one"</i></li>
-    </ul>
+        <div class="indented_once">
+            <h3>Example: Multi Stat (timeless jewel)</h3>
+            <code class="code_block indent_code_block">
+                description<br />
+                &nbsp;&nbsp;&nbsp;4 <span class="light_blue">local_unique_jewel_alternate_tree_version</span> <span class="light_green">local_unique_jewel_alternate_tree_seed</span> local_unique_jewel_alternate_tree_keystone local_unique_jewel_alternate_tree_internal_revision<br />
+                &nbsp;&nbsp;&nbsp;20<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 1 # <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Xibaqua\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 2 0 <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Zerphi\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 2 1|# <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Ahuana\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">1</span> <span class="light_green">#</span> 3 # <span class="light_red">"Bathed in the blood of {1} sacrificed in the name of Doryani\nPassives in radius are Conquered by the Vaal"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 1 # <span class="light_red">"Commanded leadership over {1} warriors under Kaom\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 2 # <span class="light_red">"Commanded leadership over {1} warriors under Rakiata\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 3 0 <span class="light_red">"Commanded leadership over {1} warriors under Kiloava\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">2</span> <span class="light_green">#</span> 3 1|# <span class="light_red">"Commanded leadership over {1} warriors under Akoya\nPassives in radius are Conquered by the Karui"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 1 0 <span class="light_red">"Denoted service of {1} dekhara in the akhara of Deshret\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 1 1|# <span class="light_red">"Denoted service of {1} dekhara in the akhara of Balbala\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 2 # <span class="light_red">"Denoted service of {1} dekhara in the akhara of Asenath\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">3</span> <span class="light_green">#</span> 3 # <span class="light_red">"Denoted service of {1} dekhara in the akhara of Nasima\nPassives in radius are Conquered by the Maraketh"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 1 0 <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Venarius\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 1 1|# <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Maxarius\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 2 # <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Dominus\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">4</span> <span class="light_green">#</span> 3 # <span class="light_red">"Carved to glorify {1} new faithful converted by High Templar Avarius\nPassives in radius are Conquered by the Templars"</span> reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 1 # <span class="light_red">"Commissioned {1} coins to commemorate Cadiro\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 2 # <span class="light_red">"Commissioned {1} coins to commemorate Victario\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 3 0 <span class="light_red">"Commissioned {1} coins to commemorate Chitus\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="light_blue">5</span> <span class="light_green">#</span> 3 1|# <span class="light_red">"Commissioned {1} coins to commemorate Caspiro\nPassives in radius are Conquered by the Eternal Empire"</span> times_twenty 2 reminderstring ReminderTextConqueredPassives<br />
+            </code>
+        </div>
+
+        <h2>Tips</h2>
+        <p>The <code>|</code> symbol does not mean "OR"; the <code>|</code> symbol is used to define a range.</p>
+        <ul>
+            <li><code>1|99</code> means <i>"match any numbers in the range 1-99"</i></li>
+            <li><code>100|#</code> means <i>"match any numbers in the range 100 to positive infinity"</i></li>
+            <li><code>#|-1</code> means <i>"match any numbers in the range negative infinity to negative one"</i></li>
+        </ul>
+    </div>
 </body>
 </html>
