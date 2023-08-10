@@ -262,7 +262,7 @@
             {
                 const effectivePlayerlevel = playerLevel > 68 ? 68 : playerLevel;
                 const effectiveDifference = Math.max(0, effectivePlayerlevel - (areaLevel + 2));
-                return 1.0 - 0.025 * effectiveDifference;
+                return Math.max(0.0, 1.0 - 0.025 * effectiveDifference);
             }
 
             function calculate_xp_and_set_dom(playerLevel, areaLevel, penalty, element, elementrate, elementexample)
