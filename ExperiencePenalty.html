@@ -37,12 +37,14 @@
             font-size: 150%;
             font-weight: bold;
         }
+
         .adjustment-label
         {
             font-size: 125%;
             font-weight: bold;
             margin-bottom: 10px;
         }
+
         .adjustment-sublabel
         {
             font-size: 75%;
@@ -83,7 +85,7 @@
             <table border="0">
                 <tr>
                     <td><div class="section-label" style="color:orange;">Input</div></td>
-                    <td align="center" colspan="3">
+                    <td align="center" colspan="4">
                         <div class="section" style="border-color:orange;">
                             <table>
                                 <tr>
@@ -108,7 +110,20 @@
                 <tr>
                     <td><div class="section-label" style="color:cyan;">PL 95-99<br />Adjustment</div></td>
                     <td align="center">
-                        <div style="border:2px dashed cyan; border-radius:10px; margin:10px; padding:10px;">
+                        <div class="section" style="border-color:cyan; min-width:150px;">
+                            <div class="adjustment-label"><a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding">Path of Building</a></div>
+                            <div class="adjustment-sublabel">(version: 2.30.1)</div>
+                            <table class="penalty_table" border="1">
+                                <tr><td>95</td><td>1.0</td></tr>
+                                <tr><td>96</td><td>1.0</td></tr>
+                                <tr><td>97</td><td>1.0</td></tr>
+                                <tr><td>98</td><td>1.0</td></tr>
+                                <tr><td>99</td><td>1.0</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="section" style="border-color:cyan; min-width: 150px;">
                             <div class="adjustment-label"><a href="https://www.poewiki.net/wiki/Experience">PoEWiki</a></div>
                             <table class="penalty_table" border="1">
                                 <tr><td>95</td><td>1.0 / 1.0650</td></tr>
@@ -120,7 +135,7 @@
                         </div>
                     </td>
                     <td align="center">
-                        <div style="border:2px dashed cyan; border-radius:10px; margin:10px; padding:10px;">
+                        <div class="section" style="border-color:cyan; min-width: 150px;">
                             <div class="adjustment-label"><a href="https://www.i-volve.net/jol/poe_xpdrop_en.php">i-volve.net</a></div>
                             <div class="adjustment-sublabel">(updated: Mar 29 2023)</div>
                             <table class="penalty_table" border="1">
@@ -133,7 +148,7 @@
                         </div>
                     </td>
                     <td align="center">
-                        <div style="border:2px dashed cyan; border-radius:10px; margin:10px; padding:10px;">
+                        <div class="section" style="border-color: cyan; min-width: 150px;">
                             <div class="adjustment-label"><a href="https://www.youtube.com/watch?v=ZRqZHH4pskI">Fyregrass</a></div>
                             <div class="adjustment-sublabel">(video date: Mar 3 2022)</div>
                             <table class="penalty_table" border="1">
@@ -147,32 +162,50 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><div class="section-label" style="color: lime;">XP Penalty</div></td>
+                    <td rowspan="3"><div class="section-label" style="color: lime;">XP Penalty</div></td>
                     <td align="center">
-                        <div class="section" style="border-color: lime; min-width: 280px;">
+                        <div class="section" style="border-color: lime;">
+                            <div id="penaltyPoB" class="significant-value">0%</div>
+                            <div id="penaltyPoBRate">(0% rate)</div>
+
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="section" style="border-color: lime;">
                             <div id="penaltyPoEWiki" class="significant-value">0%</div>
                             <div id="penaltyPoEWikiRate">(0% rate)</div>
-                            <div id="penaltyPoEWikiExample">a 100xp rhoa gives you 100xp</div>
+
                         </div>
                     </td>
                     <td align="center">
-                        <div class="section" style="border-color: lime; min-width: 280px; ">
+                        <div class="section" style="border-color: lime;">
                             <div id="penaltyVolve" class="significant-value">0%</div>
                             <div id="penaltyVolveRate">(0% XP rate)</div>
-                            <div id="penaltyVolveExample">a 100xp rhoa gives you 100xp</div>
+
                         </div>
                     </td>
                     <td align="center">
-                        <div class="section" style="border-color: lime; min-width: 280px; ">
+                        <div class="section" style="border-color: lime;">
                             <div id="penaltyFyregrass" class="significant-value">0%</div>
                             <div id="penaltyFyregrassRate">(0% XP rate)</div>
-                            <div id="penaltyFyregrassExample">a 100xp rhoa gives you 100xp</div>
+
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><div class="section-label" style="color:brown;">Currency<br/>Penalty</div></td>
-                    <td align="center" colspan="3">
+                    <td align="center" colspan="4">
+                        <div class="section notable-value" style="border-color: lime;">a 10000xp rhoa will give you</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><div id="penaltyPoBExample" class="notable-value section" style="border-color:lime;">100xp</div></td>
+                    <td align="center"><div id="penaltyPoEWikiExample" class="notable-value section" style="border-color:lime;">100xp</div></td>
+                    <td align="center"><div id="penaltyVolveExample" class="notable-value section" style="border-color:lime;">100xp</div></td>
+                    <td align="center"><div id="penaltyFyregrassExample" class="notable-value section" style="border-color:lime;">100xp</div></td>
+                </tr>
+                <tr>
+                    <td><div class="section-label" style="color:brown;">Currency<br />Penalty</div></td>
+                    <td align="center" colspan="4">
                         <div class="section" style="border-color: brown;">
                             <div id="dropPenalty" class="significant-value">20%</div>
                             <div id="dropPenaltyRate">(0% drop rate)</div>
@@ -214,6 +247,12 @@
             refresh_calculation();
             function refresh_calculation()
             {
+                const penalty_pob = [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0];
                 const penalty_poewiki = [
                     1.0 / 1.0650,
                     1.0 / 1.1150,
@@ -236,6 +275,12 @@
                 // confined [1,99] and non-NaN
                 const playerLevel = Math.max(1, Math.min(99, parseInt(playerLevelElement.value) || 1));
                 const areaLevel = Math.max(1, Math.min(99, parseInt(areaLevelElement.value) || 1));
+
+                calculate_xp_and_set_dom(
+                    playerLevel, areaLevel, penalty_pob,
+                    document.getElementById("penaltyPoB"),
+                    document.getElementById("penaltyPoBRate"),
+                    document.getElementById("penaltyPoBExample"));
 
                 calculate_xp_and_set_dom(
                     playerLevel, areaLevel, penalty_poewiki,
@@ -286,7 +331,7 @@
                 element.innerHTML =
                     (1.0 - xpMultiplier).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
                 elementrate.innerHTML = "(" + xpMultiplier.toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 }) + " XP rate)";
-                elementexample.innerHTML = "a 10000xp rhoa gives you " + parseInt(10000 * xpMultiplier) + "xp";
+                elementexample.innerHTML = parseInt(10000 * xpMultiplier) + "xp";
             }
 
             function calculate_xp_actual(playerLevel, areaLevel, penalty)
