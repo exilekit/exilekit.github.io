@@ -15,9 +15,51 @@
             font-size: 150px;
         }
 
+        h2
+        {            
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .h2-subtext
+        {
+            color:gray;
+            margin: 0px 0 0 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h3
+        {
+            font-size: 24px;
+            margin: 0 0 5px 0;
+            padding: 0;
+            text-align: center;
+        }
+
         #title-container
         {
             display: flex;
+        }
+
+        #items-container
+        {
+            margin: 10px 0 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .item
+        {
+            width: min-content;
+            min-width: 30%;
+            border: 2px dashed gray;
+            border-radius: 10px;
+            padding: 10px;
         }
 
         #title-heist-img
@@ -39,6 +81,7 @@
             text-align: center;
             font-size: 24px;
             margin-top: -20px;
+            margin-bottom: 20px;
         }
     </style>
     <div id="title-container">
@@ -50,85 +93,54 @@
         Future home of stuff about Path of Exile 2. In the meanwhile, stuff rediscovered about Path of Exile 1.
     </div>
 
+    <h2>Applications</h2>
+    <div class="h2-subtext">Tools developed from this project 🛠️</div>
 
-    <style>
-        .nav-tutorial
-        {
-            list-style-type: "📝";
-        }
-        .nav-dump
-        {
-            list-style-type: "💢";
-        }
-        .nav-description
-        {
-            list-style-type:none;
-            font-size:initial;
-        }
-        .nav-tutorial, .nav-dump
-        {
-            font-size: 24px;
-        }
-        .nav-tutorial, .nav-dump, .nav-description
-        {
-            margin: 20px;
-        }
-    </style>
-    <ul>
-        <li class="nav-tutorial">
-            <a href="ExperiencePenalty.html">ExperiencePenalty</a>
-            <ul>
-                <li class="nav-description">
-                    A comparison of a few well known XP penalty calculators.
-                </li>
-            </ul>
-        </li>
-        <li class="nav-tutorial">
-            <a href="StatDescriptionFormat.html">StatDescriptionFormat</a>
-            <ul>
-                <li class="nav-description">
-                    Tutorial on the format of <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code>.
-                </li>
-            </ul>
-        </li>
-        <li class="nav-tutorial">
-            <a href="TexConvDdsToPng.html">TexConvDdsToPng</a>
-            <ul>
-                <li class="nav-description">
-                    Tutorial on how to convert <code>.dds</code> files to <code>.png</code>.
-                </li>
-            </ul>
-        </li>
-        <li class="nav-dump">
-            <a href="DelimiterSearch.html">DelimiterSearch</a>
-            <ul>
-                <li class="nav-description">
-                    There is an 8 byte delimiter
-                    <code>0xBB_BB_BB_BB_BB_BB_BB_BB</code> that marks the end of the record data and the beginning of the
-                    auxilliary data of each
-                    <code>.dat64</code>. There's little reason for it to exists, and it could coincidentally appear in other places of the file.
-                    This page lists the result of searching for it.
-                </li>
-            </ul>
-        </li>
-        <li class="nav-dump">
-            <a href="MutatorList.html">MutatorList</a>
-            <ul>
-                <li class="nav-description">
-                    A count of every unique set of mutators for the file
-                    <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> (english-only).
-                </li>
-            </ul>
-        </li>
-        <li class="nav-dump">
-            <a href="StatDescriptionList.html">StatDescriptionList</a>
-            <ul>
-                <li class="nav-description">
-                    Just
-                    <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> formatted as an HTML table (english-only).
-                </li>
-            </ul>
-        </li>
-    </ul>
+    <div id="items-container">
+        <div class="item">
+            <h3><a href="ExperiencePenalty.html">ExperiencePenalty</a></h3>
+            A comparison of a few well known XP penalty calculators.
+        </div>
+    </div>    
+    <h2>Write Ups</h2>
+    <div class="h2-subtext">Things interesting (or confusing) enough that they were documented 😅</div>
+
+    <div id="items-container">
+        <div class="item">
+            <h3><a href="StatDescriptionFormat.html">StatDescriptionFormat</a></h3>
+            Tutorial on the format of <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code>.
+        </div>
+        <div class="item">
+            <h3><a href="TexConvDdsToPng.html">TexConvDdsToPng</a></h3>
+            Tutorial on how to convert <code>.dds</code> files to <code>.png</code>.
+        </div>
+    </div>
+
+    <h2>Data Dumps</h2>
+    <div class="h2-subtext">
+        Data with minimal explanation, mostly presented in tables, used in discussions with fellow tool developers 📉
+    </div>
+
+    <div id="items-container">
+        <div class="item">
+            <h3><a href="DelimiterSearch.html">DelimiterSearch</a></h3>
+            There is an 8 byte delimiter <code>0xBB_BB_BB_BB_BB_BB_BB_BB</code> that marks the end of the record data and the beginning of the auxilliary data of each
+            <code>.dat64</code>. There's little reason for it to exists, and it could coincidentally appear in other places of the file.
+            This page lists the result of searching for it.
+        </div>
+        <div class="item">
+            <h3><a href="MutatorList.html">MutatorList</a></h3>
+            A count of every unique set of mutators for the file <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> (english-only).
+        </div>
+        <div class="item">
+            <h3><a href="StatDescriptionList.html">StatDescriptionList</a></h3>
+            Just <code>Bundles\Metadata\StatDescriptions\stat_descriptions.txt</code> formatted as an HTML table (english-only).
+        </div>
+    </div>
+
+    <h2>Contact</h2>
+    <div class="h2-subtext">
+        I am <code>xFleury</code> on <code>Prohibited Library</code> and <code>The Forbidden Trove</code> discord servers 🥂
+    </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 body
 {
+    font-size:16px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgb(49,51,56);
     color: rgb(240,242,244);
@@ -9,18 +10,19 @@ body
 
 code
 {
+    display: inline-block;
+    white-space:pre;
+    font-family: monospace;
     background-color: rgb(40,40,40);
-    border: 1px dashed rgb(164,164,164);
     padding-left: 4px;
     padding-right: 4px;
 }
 
 .code_block
 {
-    background-color: white;
-    border: 1px dashed rgb(0,0,0);
-    color: black;
     display: block;
+    background-color: white;
+    color: black;
     padding: 10px;
     overflow-x: auto;
     white-space: nowrap;
