@@ -341,7 +341,8 @@
                 const effectiveDifference = Math.max(0, Math.abs(playerLevel - effectiveMonsterLevel) - safeZone);
 
                 let xpMultiplier = Math.pow((playerLevel + 5) / (playerLevel + 5 + Math.pow(effectiveDifference, 2.5)), 1.5);
-                if (playerLevel >= 95) {
+                if (playerLevel >= 95)
+                {
                     xpMultiplier *= (1.0 / (1.0 + 0.1 * (playerLevel - 94.0)));
                     xpMultiplier *= penalty[playerLevel - 95];
                 }
@@ -352,27 +353,29 @@
 
             function calculate_effective_monster_level(areaLevel)
             {
-                if (areaLevel > 70) {
+                if (areaLevel > 70)
+                {
                     return -0.03 * areaLevel * areaLevel + 5.17 * areaLevel - 144.90;
                 }
-                else {
+                else
+                {
                     return areaLevel;
                 }
             }
         </script>
 
         <!--
-            placeholder for version 2.0
+        placeholder for version 2.0
 
-            <div style="border:2px dashed purple; margin:10px;">
-                <h2>Explanation of Math</h2>
-                <div id="some_katex_thing" />
-                <script>
-                    katex.render("c = \\pm\\sqrt{a^2 + b^2}", some_katex_thing);
-                </script>
-                draw rest of owl
-            </div>
-        -->
+        <div style="border:2px dashed purple; margin:10px;">
+            <h2>Explanation of Math</h2>
+            <div id="some_katex_thing" />
+            <script>
+                katex.render("c = \\pm\\sqrt{a^2 + b^2}", some_katex_thing);
+            </script>
+            draw rest of owl
+        </div>
+    -->
     </div>
 </body>
 </html>
